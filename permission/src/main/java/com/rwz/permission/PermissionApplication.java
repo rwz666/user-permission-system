@@ -14,4 +14,5 @@ public class PermissionApplication {
     public static void main(String[] args) {
         SpringApplication.run(PermissionApplication.class);
     }
+
 }
