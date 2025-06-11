@@ -21,10 +21,17 @@
 		<java.version>17</java.version>
 		<spring-boot.version>3.0.2</spring-boot.version>
 		<spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+		<lombok.version>1.18.38</lombok.version>
 	</properties>
 
 
-
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+	</dependencies>
 
 
 	<dependencyManagement>
