@@ -1,0 +1,31 @@
+# 数据源配置（单库）
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/user-permission-system?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+# 分片规则
+rules:
+  - !SHARDING
+    autoTables:
+      user:
+        actualDataSources: ds_0
+        shardingStrategy:
+          standard:
+            shardingColumn: username
+            shardingAlgorithmName: user_table_hash_mod
+    # 分片算法定义
+    shardingAlgorithms:
+      user_table_hash_mod:
+        type: HASH_MOD
+        props:
+          sharding-count: 16
+  - !SINGLE
+    tables:
+      - "*.*" # 加载全部单表
+# 展现逻辑 SQL & 真实 SQL
+props:
+  sql-show: true

@@ -18,10 +18,13 @@
 	</modules>
 
 	<properties>
-		<java.version>17</java.version>
-		<spring-boot.version>3.0.2</spring-boot.version>
+		<java.version>8</java.version>
+		<spring-boot.version>2.4.5</spring-boot.version>
 		<spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
 		<lombok.version>1.18.38</lombok.version>
+		<shardingsphere.version>5.5.2</shardingsphere.version>
+		<mybatis-plus.version>3.5.5</mybatis-plus.version>
+		<snakeyaml.version>1.33</snakeyaml.version>
 	</properties>
 
 
@@ -52,26 +55,41 @@
 				<scope>import</scope>
 			</dependency>
 
+			<!--分库分表-->
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-jdbc</artifactId>
+				<version>${shardingsphere.version}</version>
+			</dependency>
+			<!--springboot低版本兼容高版本shardingsphere需要引入的依赖-->
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>${snakeyaml.version}</version> <!-- 或更高版本 -->
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- Maven 编译插件 -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.11.0</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>
