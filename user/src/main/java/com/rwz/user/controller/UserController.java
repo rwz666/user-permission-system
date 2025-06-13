@@ -6,7 +6,9 @@ import com.rwz.user.dao.entity.UserDO;
 import com.rwz.user.dto.req.UserRegisterReqDTO;
 import com.rwz.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,7 +32,7 @@ public class UserController {
      * 用户注册
      */
     @PostMapping("/user/register")
-    public Result<Void> register(UserRegisterReqDTO requestParam) {
+    public Result<Void> register(@RequestBody UserRegisterReqDTO requestParam) {
         userService.register(requestParam);
         return Results.success();
     }

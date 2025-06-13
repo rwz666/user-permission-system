@@ -25,6 +25,7 @@
 		<shardingsphere.version>5.5.2</shardingsphere.version>
 		<mybatis-plus.version>3.5.5</mybatis-plus.version>
 		<snakeyaml.version>1.33</snakeyaml.version>
+		<hutool.version>5.8.16</hutool.version>
 	</properties>
 
 
@@ -73,6 +74,12 @@
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
 				<version>${mybatis-plus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
