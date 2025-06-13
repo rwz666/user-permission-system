@@ -1,6 +1,7 @@
 package com.rwz.user.common.convention.result;
 
 import com.rwz.user.common.convention.errorcode.BaseErrorCode;
+import com.rwz.user.common.convention.exception.AbstractException;
 
 /**
  * @author rwz
@@ -33,5 +34,11 @@ public class Results {
         return new Result<Void>()
                 .setCode(BaseErrorCode.SERVICE_ERROR.getErrorCode())
                 .setCode(BaseErrorCode.SERVICE_ERROR.getErrorCode());
+    }
+
+    public static Result<Void> fail(AbstractException e) {
+        return new Result<Void>()
+                .setCode(e.errorCode == null ? BaseErrorCode.SERVICE_ERROR.getErrorCode() : e.errorCode)
+                .setMessage(e.errorMessage == null ? BaseErrorCode.SERVICE_ERROR.getDesc() : e.errorMessage);
     }
 }

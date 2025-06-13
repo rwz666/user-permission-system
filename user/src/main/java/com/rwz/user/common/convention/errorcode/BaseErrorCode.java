@@ -11,7 +11,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum BaseErrorCode {
 
-    SERVICE_ERROR("A00001", "服务端异常");
+    SERVICE_ERROR("A00001", "服务端异常"),
+    CLIENT_ERROR("B00001", "用户端错误");
 
     private final String errorCode;
     private final String desc;
