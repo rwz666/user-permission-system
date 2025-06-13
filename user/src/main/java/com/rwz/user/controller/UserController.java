@@ -1,6 +1,9 @@
 package com.rwz.user.controller;
 
+import com.rwz.user.common.convention.result.Result;
+import com.rwz.user.common.convention.result.Results;
 import com.rwz.user.dao.entity.UserDO;
+import com.rwz.user.dto.req.UserRegisterReqDTO;
 import com.rwz.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,5 +24,14 @@ public class UserController {
     public String test() {
         userService.test();
         return "test";
+    }
+
+    /**
+     * 用户注册
+     */
+    @PostMapping("/user/register")
+    public Result<Void> register(UserRegisterReqDTO requestParam) {
+        userService.register(requestParam);
+        return Results.success();
     }
 }
