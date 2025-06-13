@@ -57,6 +57,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
         UserDO userDO = UserDO.builder()
                 .userId(userId)
                 .username(requestParam.getUsername())
+                .password(requestParam.getPassword())
                 .email(requestParam.getEmail())
                 .phone(requestParam.getPhone())
                 .createTime(new Date())
